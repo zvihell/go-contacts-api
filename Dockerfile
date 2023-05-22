@@ -6,6 +6,6 @@ ENV GOPATH=/
 COPY ./ ./
 
 RUN go mod download
-RUN go build -o go_auth ./main.go
+RUN go build -o go_auth ./cmd/main.go
 
 CMD [ "./go_auth" ]
