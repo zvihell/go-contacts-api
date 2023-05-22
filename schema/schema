@@ -1,0 +1,15 @@
+CREATE TABLE users (
+	id serial PRIMARY KEY,
+	email varchar(255) NOT NULL,
+	password varchar(255) NOT NULL
+);
+
+CREATE TABLE contacts (
+	id serial PRIMARY KEY,
+	name varchar(255) NOT NULL,
+	lastname varchar(255) NOT NULL,
+	organization varchar(255) NOT NULL,
+	dolzhnost varchar(255) NOT NULL,
+	mobile varchar(255) NOT NULL,
+	user_id int REFERENCES users(id)
+);

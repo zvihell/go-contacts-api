@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./
+    command: ./go_auth
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=88888888
+      - POSTGRES_DB=auth_db
+  db:
+    restart: always
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=88888888
+      - POSTGRES_DB=auth_db
+    ports:
+      - 5432:5432
